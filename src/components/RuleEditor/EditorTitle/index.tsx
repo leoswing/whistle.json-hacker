@@ -3,13 +3,15 @@ import { Row, Col, Input, Typography, InputRef } from "antd";
 import { EditOutlined } from '@ant-design/icons';
 import { TextAreaRef } from "antd/lib/input/TextArea";
 
+import './index.css';
+
 interface BuilderBodyProps {
   titleName: string;
   disabled?: boolean;
-  description: string;
+  description?: string;
 }
 
-const RuleBuilderBody = ({ titleName, disabled = false, description }: BuilderBodyProps) => {
+const RuleEditorTitle = ({ titleName, disabled = false, description = '' }: BuilderBodyProps) => {
   const [isNameEditable, setIsNameEditable] = useState<boolean>(false);
   const [isDescriptionEditable, setIsDescriptionEditable] = useState<boolean>(false);
   const nameInputRef = useRef<InputRef | null>(null);
@@ -50,7 +52,7 @@ const RuleBuilderBody = ({ titleName, disabled = false, description }: BuilderBo
                     spellCheck={false}
                     value={titleName}
                     onChange={(e) => nameChangeCallback(e.target.value)}
-                    placeholder={namePlaceholder()}
+                    placeholder={'Enter rule name'}
                     onPressEnter={() => setIsNameEditable(false)}
                   />
                 </div>
@@ -97,4 +99,4 @@ const RuleBuilderBody = ({ titleName, disabled = false, description }: BuilderBo
   );
 };
 
-export default RuleBuilderBody;
+export default RuleEditorTitle;
