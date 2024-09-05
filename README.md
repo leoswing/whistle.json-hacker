@@ -37,3 +37,11 @@ npm run serve
 `tsconfig.json` - `TypeScript` 配置
 
 `vite.config.ts` - `Vite` 配置
+
+
+# Reference
+
+- [plugins development](https://wproxy.org/whistle/plugins.html)
+- [whistle lack](https://github.com/avwo/lack)
+- [example whistle.view-md5](https://github.com/whistle-plugins/examples/tree/master/whistle.view-md5)
+- [example whistle.test-ui](https://github.com/whistle-plugins/examples/tree/master/whistle.test-ui)
