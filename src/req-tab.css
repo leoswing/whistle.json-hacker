@@ -1,0 +1,77 @@
+html,
+body,
+.main {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* 浅色模式 */
+body { 
+  background: white;
+  color: #333;
+  font-size: 14px;
+}
+
+.w-textarea {
+  position: relative;
+}
+
+a {
+  cursor: pointer;
+}
+
+.w-textarea-bar {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  border-radius: 2px;
+  top: 2px;
+  right: 12px;
+  font-size: 12px;
+  white-space: nowrap;
+  line-height: 1.5;
+  background: #eee;
+}
+
+.w-properties-wrap:hover .w-textarea-bar {
+  display: inline-block;
+}
+
+.w-textarea-bar a {
+  display: inline-block;
+  text-decoration: none;
+  color: #747474;
+  padding: 0 5px;
+}
+
+.w-textarea-bar a:hover {
+  color: #333373;
+}
+
+.w-textarea-bar .w-add,
+.w-textarea-bar .w-download {
+  display: inline-block;
+}
+
+.w-textarea-bar .w-properties-btn {
+  position: static;
+}
+
+.w-json-viewer-str {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  color: #333;
+  border: none;
+  font-size: 12px;
+}
+
+.w-json-viewer-str,
+.w-json-viewer-tree {
+  padding: 5px;
+  overflow: auto;
+}

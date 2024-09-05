@@ -1,0 +1,57 @@
+{
+  "name": "whistle.json-hacker",
+  "version": "1.0.0",
+  "description": "Plugin to view JSON stringify request payload content in pure json inspect",
+  "author": "finleyliang",
+  "license": "MIT",
+  "whistleConfig": {
+    "inspectorTabs": {
+      "req": {
+        "page": "/dist/reqTab.html",
+        "name": "JSONDeepView可视化"
+      }
+    }
+  },
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "tsc": "tsc --noEmit",
+    "dev:react": "tsc -b && vite",
+    "build:react": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@types/koa": "^2.13.4",
+    "@types/koa-bodyparser": "^4.3.5",
+    "@types/koa-compress": "^4.0.3",
+    "@types/koa-router": "^7.4.4",
+    "@types/koa-static": "^4.0.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.9.0",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "globals": "^15.9.0",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.0.1",
+    "vite": "^5.4.1"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.4.0",
+    "antd": "^5.20.4",
+    "clipboard": "^2.0.11",
+    "koa": "^2.15.0",
+    "koa-bodyparser": "^4.4.1",
+    "koa-onerror": "^4.2.0",
+    "koa-router": "^12.0.1",
+    "koa-static": "^5.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-json-tree": "0.17.0",
+    "react-router-dom": "^6.3.0"
+  }
+}
