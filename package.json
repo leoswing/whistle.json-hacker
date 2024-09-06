@@ -1,6 +1,6 @@
 {
   "name": "whistle.json-hacker",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Plugin to view JSON stringify request payload content in pure json inspect",
   "author": "finleyliang",
   "license": "MIT",
