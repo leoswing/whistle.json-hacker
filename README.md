@@ -50,6 +50,12 @@ npm i -g whistle.json-hacker
 
 ![Plugin-text-json-transform](https://raw.githubusercontent.com/leoswing/whistle.json-hacker/main/img/text-json-transform.png)
 
+
+## Q & A
+
+1. Q：支持从请求体里面的参数进行搜索吗？
+A：whistle本身就支持，可以在 whistle 的搜索框中，使用 `b:关键字` 来进行搜索，比如 `b:U201902044688852788` 可以检索请求体里面有文本关键字为 U201902044688852788 的数据
+
 ## TODO
 
 - 支持配置化方式传递 request key 和 对应的函数转换处理
