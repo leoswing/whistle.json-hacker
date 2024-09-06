@@ -20,13 +20,11 @@ const RequestTabComp = ({ jsonData }: RequestTabProps) => {
 
   const handleExpandAll = (event: any) => {
     event.preventDefault();
-    console.log('>>> expand all');
     setShouldExpandNode(true);
   };
 
   const handleCollapseAll = (event: any) => {
     event.preventDefault();
-    console.log('>>> collapse all');
     setShouldExpandNode(false);
   };
 

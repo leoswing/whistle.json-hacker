@@ -1,11 +1,11 @@
-import RequestRule from './components/RequestRule';
+import RequestRule from './components/RuleEditor';
 
 import './App.css';
 
 function App() {
   return (
     <>
-      <RequestRule />
+      <RequestRule mode='create' />
     </>
   );
 }

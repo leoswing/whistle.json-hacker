@@ -3,6 +3,7 @@
     "outDir": "./dist/",
     "noImplicitAny": true,
     "removeComments": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "commonjs",
     "target": "es6",
     "allowJs": true,

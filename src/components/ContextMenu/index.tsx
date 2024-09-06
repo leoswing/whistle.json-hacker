@@ -21,16 +21,7 @@ const useContextMenu = (shouldCustomContextMenu = true) => {
     (e: MouseEvent) => {
 
       const element = (e.target as HTMLElement);
-      // const nodeName = element.nodeName;
-      // const closest = element.closest('li');
 
-      console.log('>>> 当前点击元素', element);
-      console.log('>>> 当前元素值 nodeValue', element.nodeValue);
-
-      console.log('>> 当前元素 childNodes', element.childNodes);
-      console.log('>>> 当前元素 children', element.children);
-
-      // if ((nodeName && closest && closest.nodeName === 'LI' && nodeName !== 'LI'))
       if (element.children.length == 0)  {
         setShowMenu(false);
 
