@@ -8,16 +8,18 @@
     "inspectorTabs": {
       "req": {
         "page": "/dist/reqTab.html",
-        "name": "JSONDeepView可视化"
+        "name": "JSONDeepView"
       }
     }
   },
   "scripts": {
-    "dev": "tsc -w",
-    "build": "tsc",
+    "dev": "npm run dev:server && npm run dev:client",
+    "build": "npm run build:server && npm run build:client",
+    "dev:server": "tsc -w --p ./tsconfig.server.json",
+    "build:server": "tsc --p ./tsconfig.server.json",
+    "dev:client": "vite",
+    "build:client": "vite build",
     "tsc": "tsc --noEmit",
-    "dev:react": "tsc -b && vite",
-    "build:react": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -42,6 +44,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.4.0",
+    "@ant-design/pro-card": "^2.8.7",
     "antd": "^5.20.4",
     "clipboard": "^2.0.11",
     "koa": "^2.15.0",

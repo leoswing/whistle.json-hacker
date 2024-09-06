@@ -14,10 +14,6 @@ export default function ReqTab() {
         return (new Error('请选择抓包内容'));
       }
     
-      console.log('>>> print item');
-      console.log(item);
-      console.log('>>> print request item', item.req);
-    
       const base64 = item.req.base64;
     
       if (!base64) {
@@ -34,7 +30,7 @@ export default function ReqTab() {
       try {
         parsedBody = JSON.parse(decodedBodyText);
       } catch (error) {
-        console.warn('>>> Fail to parse json for decodedBody', error);
+        // noop
       }
   
       const cgiOpts = {
@@ -49,8 +45,6 @@ export default function ReqTab() {
           return new Error('请求失败, 请点击重试');
         }
   
-        console.log('>>> print final data output', data);
-
         setJsonData(data);
       });
     };
@@ -62,8 +56,6 @@ export default function ReqTab() {
       window.whistleBridge.removeSessionRequestListener(onSubscribeMessage);
     };
   }, []);
-
-  console.log('>>> jsonData details', jsonData);
 
   return (<RequestTabComp jsonData={jsonData}></RequestTabComp>);
 

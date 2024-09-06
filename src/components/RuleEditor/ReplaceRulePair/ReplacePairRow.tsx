@@ -3,9 +3,11 @@ import { Row, Col, Input } from "antd";
 
 import { RulePairProps } from './types';
 
+import './ReplacePairRow.css';
+
 type ReplaceRowProps = RulePairProps & { rowIndex: number }
 
-const ReplacePartRow = ({ rowIndex, pair, pairIndex, isInputDisabled }: ReplaceRowProps) => {
+const ReplacePartRow = ({ rowIndex, pair, isInputDisabled }: ReplaceRowProps) => {
   const updateRulePairAtGivenPath = () => {
     console.log('>>> updateRulePairAtGivenPath trigger');
   };
@@ -17,13 +19,13 @@ const ReplacePartRow = ({ rowIndex, pair, pairIndex, isInputDisabled }: ReplaceR
   };
 
   return (
-    <Row align="middle" key={rowIndex} span={24} gutter={16} className="margin-top-one">
+    <Row align="middle" key={rowIndex} gutter={16} className="margin-top-one">
       <Col span={12} data-tour-id="rule-editor-replace-from">
         <Input
           type="text"
           value={pair.from}
           addonBefore="Replace"
-          placeholder="This part in URL"
+          placeholder="JSON key value"
           disabled={isInputDisabled}
           onChange={(e) => handleInputChange(e, "from")}
           data-selectionid="replace-from-in-url"
@@ -34,7 +36,7 @@ const ReplacePartRow = ({ rowIndex, pair, pairIndex, isInputDisabled }: ReplaceR
           type="text"
           value={pair.to}
           addonBefore="With"
-          placeholder="This part"
+          placeholder="Function transform"
           disabled={isInputDisabled}
           onChange={(e) => handleInputChange(e, "to")}
           data-selectionid="replace-to-in-url"

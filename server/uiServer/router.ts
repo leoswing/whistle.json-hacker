@@ -1,5 +1,7 @@
 import Router from 'koa-router';
 
+import { JSON_PARSE_KEYS } from './config';
+
 const JSON_HACKER_RULE = 'json_hacker_rules';
 
 const safetyStringify = (data: Record<string, unknown> | string | unknown) => {
@@ -23,21 +25,19 @@ export default (router: Router) => {
   router.post('/cgi-bin/json-inspect', (ctx) => {
     const { parsedBody } = (ctx.request.body) as Record<string, unknown>;
 
-    const shouldParseAsJsonKeys = ['r5', 'ext'];
-
     try {
       if (Array.isArray(parsedBody)) {
         parsedBody.map((item: any) => {
           Object.keys(item).forEach(itemKey => {
             // 仅对特定的key的数据进行JSON处理
-            if (shouldParseAsJsonKeys.includes(itemKey)) {
+            if (JSON_PARSE_KEYS.includes(itemKey)) {
               try {
                 const result = JSON.parse(decodeURIComponent(item[itemKey]));
 
                 // 重写使用对应的json数据
                 item[itemKey] = result;
               } catch (error) {
-                console.warn('>>> Fail to parse JSON data and set with pure JSON content', error);
+                console.warn('>>> Fail to parse JSON data with pure JSON content', error);
               }
             }
           });

@@ -1,7 +1,7 @@
-import { Row, Col, Typography, Input } from 'antd';
+import React, { useState } from 'react';
+import { Row, Col, Typography, Input, Dropdown } from 'antd';
 import { DownOutlined } from "@ant-design/icons";
-
-import { RQDropdown } from '../Dropdown';
+import type { MenuProps } from 'antd';
 
 import { RulePairProps } from './types';
 
@@ -13,7 +13,50 @@ type RequestSourceRowProps = RulePairProps & {
 
 const { Text } = Typography;
 
-const RequestSourceRow = ({ rowIndex, pair, pairIndex, ruleDetails, isInputDisabled = false }: RequestSourceRowProps) => {
+const RequestSourceRow = ({ rowIndex, pair, isInputDisabled = false }: RequestSourceRowProps) => {
+  const [sourceType, setSourceType] = useState('URL');
+  const [condtion, setCondition] = useState('Contains');
+
+  const sourceTypeItems: MenuProps['items'] = [
+    {
+      label: 'URL',
+      key: '0',
+    },
+    {
+      label: 'Host',
+      key: '1',
+    },
+  ];
+
+  const conditionItems: MenuProps['items'] = [
+    {
+      label: 'Contains',
+      key: '2',
+    },
+    {
+      label: 'Matches (Regex)',
+      key: '3',
+    },
+  ];
+
+  const onSourceTypeClick: MenuProps['onClick'] = ({ key }) => {
+    console.log(`Click on item ${key}`);
+
+    const target = sourceTypeItems.filter((item) => item.key === key);
+    const targetSourceType = (target[0] as any)?.label;
+
+    setSourceType(targetSourceType);
+  };
+
+  const onConditionClick: MenuProps['onClick'] = ({ key }) => {
+    console.log(`onConditionItemsClick ${key}`);
+
+    const target = conditionItems.filter((item) => item.key === key);
+    const targetCondition = (target[0] as any)?.label;
+
+    setCondition(targetCondition);
+  };
+
   return (
     <div className="rule-pair-source-row-wrapper">
       <Row
@@ -21,34 +64,34 @@ const RequestSourceRow = ({ rowIndex, pair, pairIndex, ruleDetails, isInputDisab
         key={rowIndex}
         align="middle"
         data-tour-id="rule-editor-source"
-        className="rules-pair-content-header w-full"
+        className="rule-editor-source rules-pair-content-header w-full"
         style={{ marginLeft: 0, marginRight: 0 }}
         wrap={false}
       >
-
         <Col className="shrink-0">
-          <RQDropdown disabled={isInputDisabled}>
+          <Dropdown menu={{ items: sourceTypeItems, onClick: onSourceTypeClick }}>
             <Text
               strong
-              className="rule-pair-source-dropdown cursor-pointer uppercase"
+              className="rule-pair-source-dropdown cursor-pointer uppercase rq-dropdown"
               onClick={(e) => e.preventDefault()}
             >
-              {pair.source.key} {!isInputDisabled && <DownOutlined />}
+              {sourceType}
+              <DownOutlined />
             </Text>
-          </RQDropdown>
+          </Dropdown>
         </Col>
         <Col className="shrink-0">
-          <RQDropdown disabled={isInputDisabled}>
+          <Dropdown menu={{ items: conditionItems, onClick: onConditionClick }}>
             <Text
               strong
-              className="rule-pair-source-dropdown cursor-pointer"
+              className="rule-pair-source-dropdown cursor-pointer rq-dropdown"
               onClick={(e) => e.preventDefault()}
               style={{ textTransform: "capitalize" }}
             >
-              { "RegEx"}
-              {!isInputDisabled && <DownOutlined />}
+              {condtion}
+              <DownOutlined />
             </Text>
-          </RQDropdown>
+          </Dropdown>
         </Col>
         <Col className="w-full">
           <Input
@@ -63,7 +106,7 @@ const RequestSourceRow = ({ rowIndex, pair, pairIndex, ruleDetails, isInputDisab
               console.log('>>> event?.target?.value', event?.target?.value);
             }}
             className="rules-pair-input"
-            value={pair.source.value}
+            value={''}
             disabled={isInputDisabled}
             data-selectionid="source-value"
           />

@@ -5,14 +5,27 @@
 
 .rules-pair-content-header {
   padding: 4px;
-  box-shadow: var(--input-box-shadow);
-  border-radius: var(--border-radius-sm);
-  background-color: var(--component-dark-background);
+  border-radius: 4px;
+  box-shadow: inset 0px -1px 2px #4f5154, inset 0px 0px 4px rgba(0, 0, 0, .15);
 }
 
-.rule-pair-source-dropdown {
-  font-size: var(--requestly-font-size-sm);
-  background-color: var(--input-background);
+.ant-typography {
+  /* color: #ffffffd9; */
+  word-break: break-word;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.rq-dropdown {
+  padding: 8px;
+  border: 1px solid #fafafa;
+  border-radius: 8px;
 }
 
 .rules-pair-content-header .rules-pair-input,
@@ -21,7 +34,10 @@
   border: none;
   box-shadow: none;
   background-color: transparent;
-  font-size: var(--requestly-font-size-sm);
+}
+
+.rule-editor-source {
+  width: 100%;
 }
 
 .source-filter-col.ant-col {

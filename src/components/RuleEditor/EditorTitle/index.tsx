@@ -11,7 +11,7 @@ interface BuilderBodyProps {
   description?: string;
 }
 
-const RuleEditorTitle = ({ titleName, disabled = false, description = '' }: BuilderBodyProps) => {
+const RuleEditorTitle = ({ titleName = '测试RuleEditor', disabled = false, description = '' }: BuilderBodyProps) => {
   const [isNameEditable, setIsNameEditable] = useState<boolean>(false);
   const [isDescriptionEditable, setIsDescriptionEditable] = useState<boolean>(false);
   const nameInputRef = useRef<InputRef | null>(null);
@@ -44,7 +44,7 @@ const RuleEditorTitle = ({ titleName, disabled = false, description = '' }: Buil
                     disabled={disabled}
                     ref={nameInputRef}
                     data-tour-id="rule-editor-title"
-                    className={`${!titleName ? "error" : null} editor-title-input`}
+                    className={`editor-title-input`}
                     autoFocus={true}
                     onFocus={() => setIsNameEditable(true)}
                     onBlur={() => setIsNameEditable(false)}

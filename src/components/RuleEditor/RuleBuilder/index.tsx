@@ -6,8 +6,10 @@ import { DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 import EditorTitle from '../EditorTitle';
 import ReplaceRulePair from '../ReplaceRulePair';
 
+import './index.css';
+
 interface RuleBuilderProps {
-  mode: string;
+  mode?: string;
   currentlySelectedRuleData: Record<string, any>;
 }
 
@@ -15,7 +17,7 @@ interface RulePariProps {
   pairIndex: number;
 }
 
-const Body = ({ mode, currentlySelectedRuleData }: RuleBuilderProps) => {
+const Body = ({ currentlySelectedRuleData = {} }: RuleBuilderProps) => {
 
   const removeRulePairByIndex = ({ pairIndex }: RulePariProps) => {
     console.log('>>> removeRulePairByIndex with index', pairIndex);
@@ -52,6 +54,8 @@ const Body = ({ mode, currentlySelectedRuleData }: RuleBuilderProps) => {
 
   const activePanelKey = getFirstFiveRuleIds(currentlySelectedRuleData?.pairs);
 
+  const testCurrentlySelectedRuleData = [{}];
+
   return (
     <>
       <EditorTitle
@@ -66,23 +70,21 @@ const Body = ({ mode, currentlySelectedRuleData }: RuleBuilderProps) => {
           <CardBody>
             <Collapse
               className="rule-pairs-collapse"
-              defaultActiveKey={activePanelKey}
-              key={activePanelKey[activePanelKey.length - 1]}
+              defaultActiveKey={['1']}
               expandIconPosition="end"
             >
-              {currentlySelectedRuleData?.pairs?.length > 0
-                ? currentlySelectedRuleData.pairs.map((pair: any, pairIndex: number) => (
-                  <Collapse.Panel
-                    key={pair.id || pairIndex}
-                    className="rule-pairs-panel"
-                    extra={deleteButton(pairIndex)}
-                    header={<span className="panel-header">If request</span>}
-                  >
-                    <ReplaceRulePair pair={pair} pairIndex={pairIndex} />
+              {testCurrentlySelectedRuleData.map((pair: any, pairIndex: number) => (
+                <Collapse.Panel
+                  key={pair.index || pairIndex || 1}
+                  className="rule-pairs-panel"
+                  extra={deleteButton(pairIndex)}
+                  header={<span className="panel-header">If request</span>}
+                >
+                  <ReplaceRulePair pair={pair} pairIndex={pairIndex} />
 
-                  </Collapse.Panel>
-                ))
-                : null}
+                </Collapse.Panel>
+              ))
+              }
             </Collapse>
 
             <Row justify="end">
