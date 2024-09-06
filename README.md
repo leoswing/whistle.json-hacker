@@ -20,13 +20,13 @@ npm i -g whistle.json-hacker
 
 可以针对特定请求参数里面的某些key对应的value 为JSON序列化的数据，可自动执行反序列化处理，并且展示 JSON Tree的方式。
 
-![Plugin-snapshot](https://raw.githubusercontent.com/whistle.json-hacker/main/img/capture-main.png)
+![Plugin-snapshot](https://raw.githubusercontent.com/leoswing/whistle.json-hacker/main/img/capture-main.png)
 
 ### JSON Tree 展开/收回
 
 支持在whistle扩展 `JSONDeepView` tab界面快速展开和收回JSON展示
 
-![Plugin-right-menu](https://raw.githubusercontent.com/whistle.json-hacker/main/img/plugin-right-menu.png)
+![Plugin-right-menu](https://raw.githubusercontent.com/leoswing/whistle.json-hacker/main/img/plugin-right-menu.png)
 
 - Expand All: 展开 JSON Tree 所有节点
 - Collapse All： 收回 JSON Tree 所有节点
@@ -37,7 +37,7 @@ npm i -g whistle.json-hacker
 
 在光标移动到对应的JSON 文件中，右上角会展示 Copy 按钮
 
-![Plugin-copy-menu](https://raw.githubusercontent.com/whistle.json-hacker/main/img/menu-function-desc.png)
+![Plugin-copy-menu](https://raw.githubusercontent.com/leoswing/whistle.json-hacker/main/img/menu-function-desc.png)
 
 点击 `Copy` 按钮即可实现复制
 
@@ -48,7 +48,7 @@ npm i -g whistle.json-hacker
 - 当前是 `JSON` 格式，则点击 `Text` 即可转换成 Text 文本格式
 - 当前是 `Text` 格式，则点击 `JSON` 即可转换成 JSON 对象格式
 
-![Plugin-text-json-transform](https://raw.githubusercontent.com/whistle.json-hacker/main/img/text-json-transform.png)
+![Plugin-text-json-transform](https://raw.githubusercontent.com/leoswing/whistle.json-hacker/main/img/text-json-transform.png)
 
 ## TODO
 
