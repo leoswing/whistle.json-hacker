@@ -21,9 +21,11 @@
         // "strict": true,
         "noUnusedLocals": false,
         "noUnusedParameters": true,
-        "noFallthroughCasesInSwitch": true
+        "noFallthroughCasesInSwitch": true,
+        "typeRoots": ["./src/types"]
     },
     "include": [
-        "server/**/*"
+        "server/**/*",
+        "src/types/*"
     ]
 }

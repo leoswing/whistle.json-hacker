@@ -75,3 +75,13 @@ a {
   padding: 5px;
   overflow: auto;
 }
+
+.w-json-viewer-tree > ul {
+  background: none !important;
+  font-size: 12px;
+  margin: 0 !important;
+}
+
+.w-json-viewer-tree > ul label {
+  font-weight: bold;
+}

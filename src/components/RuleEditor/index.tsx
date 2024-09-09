@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import { Col } from "antd";
 import ProCard from "@ant-design/pro-card";
 

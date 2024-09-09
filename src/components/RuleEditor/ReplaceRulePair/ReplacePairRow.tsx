@@ -1,4 +1,3 @@
-import React from "react";
 import { Row, Col, Input } from "antd";
 
 import { RulePairProps } from './types';
@@ -8,10 +7,6 @@ import './ReplacePairRow.css';
 type ReplaceRowProps = RulePairProps & { rowIndex: number }
 
 const ReplacePartRow = ({ rowIndex, pair, isInputDisabled }: ReplaceRowProps) => {
-  const updateRulePairAtGivenPath = () => {
-    console.log('>>> updateRulePairAtGivenPath trigger');
-  };
-
   const handleInputChange = (e?: any, source?: string) => {
     e?.preventDefault?.();
 

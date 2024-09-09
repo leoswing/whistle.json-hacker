@@ -1,6 +1,6 @@
 # whistle.json-hacker
 
-该whistle插件主要用于实现在 请求request 和 返回response 时，对原来JSON请求里面请求/响应参数 特定key的value 进行JSON反序列化等自定义函数转换处理，同时在原来whistle界面新增tab展示支持。
+该whistle插件主要用于实现在请求request 和 返回response 时，对原来JSON请求里面请求/响应参数 特定key的value 进行JSON反序列化等自定义函数转换处理，同时在原来whistle界面新增tab展示支持。
 
 ## 安装
 
@@ -18,7 +18,7 @@ npm i -g whistle.json-hacker
 
 ### JSON 多层Tree反序列化&渲染处理
 
-可以针对特定请求参数里面的某些key对应的value 为JSON序列化的数据，可自动执行反序列化处理，并且展示 JSON Tree的方式。
+可以针对特定请求参数里面的特定key对应的value 为JSON序列化的数据，可自动执行反序列化处理，并且展示 JSON Tree的方式。
 
 ![Plugin-snapshot](https://raw.githubusercontent.com/leoswing/whistle.json-hacker/main/img/capture-main.png)
 

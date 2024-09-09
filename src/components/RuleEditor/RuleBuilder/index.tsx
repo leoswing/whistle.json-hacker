@@ -1,7 +1,7 @@
-import React, { useCallback, useMemo } from "react";
 import { CardBody } from "reactstrap";
 import { Row, Col, Collapse, Popconfirm, Tooltip, Button } from "antd";
 import { DeleteOutlined, PlusOutlined } from '@ant-design/icons';
+import type { CollapseProps } from 'antd';
 
 import EditorTitle from '../EditorTitle';
 import ReplaceRulePair from '../ReplaceRulePair';
@@ -17,7 +17,7 @@ interface RulePariProps {
   pairIndex: number;
 }
 
-const Body = ({ currentlySelectedRuleData = {} }: RuleBuilderProps) => {
+const Body = ({ currentlySelectedRuleData = [{}] }: RuleBuilderProps) => {
 
   const removeRulePairByIndex = ({ pairIndex }: RulePariProps) => {
     console.log('>>> removeRulePairByIndex with index', pairIndex);
@@ -44,17 +44,18 @@ const Body = ({ currentlySelectedRuleData = {} }: RuleBuilderProps) => {
       </Popconfirm>
     );
   };
-  const getFirstFiveRuleIds = (rules: any = []) => {
-    const ids = [];
-    for (let i = 0; i < Math.min(rules.length, 5); i++) {
-      ids.push(rules[i].id);
-    }
-    return ids;
-  };
 
-  const activePanelKey = getFirstFiveRuleIds(currentlySelectedRuleData?.pairs);
+  const collapseItems: CollapseProps['items'] = currentlySelectedRuleData.map((pair: any, pairIndex: number) => (
+    <Collapse.Panel
+      key={pair.index || pairIndex || 1}
+      className="rule-pairs-panel"
+      extra={deleteButton(pairIndex)}
+      header={<span className="panel-header">If request</span>}
+    >
+      <ReplaceRulePair pair={pair} pairIndex={pairIndex} />
 
-  const testCurrentlySelectedRuleData = [{}];
+    </Collapse.Panel>
+  ));
 
   return (
     <>
@@ -72,24 +73,13 @@ const Body = ({ currentlySelectedRuleData = {} }: RuleBuilderProps) => {
               className="rule-pairs-collapse"
               defaultActiveKey={['1']}
               expandIconPosition="end"
+              items={collapseItems}
             >
-              {testCurrentlySelectedRuleData.map((pair: any, pairIndex: number) => (
-                <Collapse.Panel
-                  key={pair.index || pairIndex || 1}
-                  className="rule-pairs-panel"
-                  extra={deleteButton(pairIndex)}
-                  header={<span className="panel-header">If request</span>}
-                >
-                  <ReplaceRulePair pair={pair} pairIndex={pairIndex} />
-
-                </Collapse.Panel>
-              ))
-              }
             </Collapse>
 
             <Row justify="end">
               <Col span={24}>
-                <Button block type="dashed" className="add-pair-btn" icon={<PlusOutlined />}>
+                <Button block type="dashed" className="add-pair-btn" icon={<PlusOutlined />} >
                   <span>
                     <Row align="middle" wrap={false} className="shrink-0">
                       Add a new condition

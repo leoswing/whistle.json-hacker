@@ -1,9 +1,10 @@
 {
   "name": "whistle.json-hacker",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "description": "Plugin to view JSON stringify request payload content in pure json inspect",
   "author": "finleyliang",
   "license": "MIT",
+  "homepage": "https://github.com/leoswing/whistle.json-hacker",
   "whistleConfig": {
     "inspectorTabs": {
       "req": {
@@ -14,14 +15,15 @@
   },
   "scripts": {
     "dev": "npm run dev:server && npm run dev:client",
-    "build": "npm run build:server && npm run build:client",
+    "build": "npm run clean && npm run build:server && npm run build:client",
     "dev:server": "tsc -w --p ./tsconfig.server.json",
     "build:server": "tsc --p ./tsconfig.server.json",
     "dev:client": "vite",
     "build:client": "vite build",
     "tsc": "tsc --noEmit",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "clean": "rimraf ./dist"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
@@ -40,7 +42,8 @@
     "globals": "^15.9.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^5.4.1"
+    "vite": "^5.4.1",
+    "rimraf": "^6.0.1"
   },
   "dependencies": {
     "@ant-design/icons": "^5.4.0",

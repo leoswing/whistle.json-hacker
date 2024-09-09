@@ -1,5 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import { Row, Col, Divider, Tooltip, Button } from "antd";
+import { Row, Col, Divider, Button } from "antd";
 import { QuestionCircleOutlined } from '@ant-design/icons';
 
 // import './index.css';
