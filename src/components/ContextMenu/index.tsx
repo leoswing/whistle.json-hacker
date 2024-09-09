@@ -1,4 +1,3 @@
-// @ts-ignore
 import React, { useCallback, useState, useEffect } from 'react';
 
 import './index.css';

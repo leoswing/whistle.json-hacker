@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import App from './ReqTab';
+import App from './components/RequestTab/ReqTab';
 import './index.css';
 
 createRoot(document.getElementById('root')!).render(
