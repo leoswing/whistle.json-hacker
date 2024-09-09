@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 import RequestTabComp from './RequestTabComp';
-import { getFormDataAsJson, isFormDataRequest } from './utils/index';
+import { getFormDataAsJson, isFormDataRequest } from '../../utils/index';
 
 import './req-tab.css';
 

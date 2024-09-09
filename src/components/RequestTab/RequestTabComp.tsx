@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { JSONTree } from 'react-json-tree';
 import Clipboard from 'clipboard';
 
-import ContextMenu from './components/ContextMenu';
+import ContextMenu from '../ContextMenu';
 
 import './req-tab.css';
 
