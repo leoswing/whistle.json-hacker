@@ -23,5 +23,6 @@ export default (server: Whistle.PluginServer, options: Whistle.PluginOptions) =>
   app.use(router.routes());
   app.use(router.allowedMethods());
   app.use(mount('/dist', serve(path.join(__dirname, '../../dist'), { maxage: MAX_AGE })));
+  app.use(mount('/', serve(path.join(__dirname, '../../dist'), { maxage: MAX_AGE })));
   server.on('request', app.callback());
 };
