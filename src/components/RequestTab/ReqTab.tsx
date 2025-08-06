@@ -1,5 +1,4 @@
-// @ts-ignore
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import RequestTabComp from './RequestTabComp';
 import { getFormDataAsJson, isFormDataRequest } from '../../utils/index';
@@ -24,7 +23,9 @@ export default function ReqTab() {
   useEffect(() => {
     const onSubscribeMessage = (item: any) => {
       if (!item) {
-        return (new Error('请选择抓包内容'));
+        setJsonData({});
+
+        return;
       }
     
       const base64 = item.req.base64;
@@ -32,7 +33,9 @@ export default function ReqTab() {
       if (!base64) {
         setJsonData({});
 
-        return new Error('Body 为空');
+        console.warn('>>> Body 为空');
+
+        return;
       }
 
       const wb = window.whistleBridge;

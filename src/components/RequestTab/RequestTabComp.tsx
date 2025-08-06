@@ -1,5 +1,4 @@
-// @ts-ignore
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { JSONTree } from 'react-json-tree';
 import Clipboard from 'clipboard';
 
