@@ -33,8 +33,6 @@ export default function ReqTab() {
       if (!base64) {
         setJsonData({});
 
-        console.warn('>>> Body 为空');
-
         return;
       }
 
