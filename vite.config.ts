@@ -4,15 +4,16 @@ import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '../',
+  root: resolve(__dirname, 'src'),
+  base: './',
   build: {
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
-        reqTab: resolve(__dirname, 'reqTab.html'),
+        main: resolve(__dirname, 'src/index.html'),
+        reqTab: resolve(__dirname, 'src/reqTab.html'),
       },
     },
-    // outDir: './public/vite',
+    outDir: resolve(__dirname, 'dist'),
     emptyOutDir: false,
   },
   plugins: [react()],

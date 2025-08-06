@@ -8,7 +8,7 @@
   "whistleConfig": {
     "inspectorTabs": {
       "req": {
-        "page": "/dist/reqTab.html",
+        "page": "./dist/reqTab.html",
         "name": "JSONDeepView"
       }
     }
@@ -40,15 +40,16 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
+    "rimraf": "^6.0.1",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^5.4.1",
-    "rimraf": "^6.0.1"
+    "vite": "^5.4.1"
   },
   "dependencies": {
     "clipboard": "^2.0.11",
     "koa": "^2.15.0",
     "koa-bodyparser": "^4.4.1",
+    "koa-mount": "^4.2.0",
     "koa-onerror": "^4.2.0",
     "koa-router": "^12.0.1",
     "koa-static": "^5.0.0",
