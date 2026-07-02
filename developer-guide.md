@@ -11,7 +11,7 @@ npm run dev
 ## 生产模式
 
 ```
-npm run serve
+npm run build
 ```
 
 这会先执行 `npm run build` 将代码打包到 `dist` 文件夹，包含 `dist/client` 和 `dist/server` ，随后启动 `Koa` 静态服务，链接为: http://localhost:2333
