@@ -95,14 +95,14 @@ const RequestTabComp = ({ jsonData }: RequestTabProps) => {
               {jsonView ? 'Text' : 'JSON'}
             </a>
           </div>
-          <div
-            className={'fill w-json-viewer-tree' + (jsonView ? ' hide' : '')}
-          >
+          <div className="fill w-json-viewer-content">
             {jsonView ?
               (
-                <JSONTree data={jsonData.json} sortObjectKeys={compare} shouldExpandNode={() => shouldExpandNode} />
+                <div className="fill w-json-viewer-tree">
+                  <JSONTree data={jsonData.json} sortObjectKeys={compare} shouldExpandNode={() => shouldExpandNode} />
+                </div>
               ) :
-              (<textarea value={jsonData.txt} readOnly className={'fill w-json-viewer-str' + (jsonView ? '' : ' hide')} />)
+              (<textarea value={jsonData.txt} readOnly className="fill w-json-viewer-str" />)
             }
           </div>
           <ContextMenu menu={contextMenuList} shouldCustomContextMenu={jsonView} />
