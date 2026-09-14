@@ -16,15 +16,23 @@ const RequestTabComp = ({ jsonData }: RequestTabProps) => {
   const [copied, setCopied] = useState(false);
   const copyBtnRef = useRef(null);
   const [shouldExpandNode, setShouldExpandNode] = useState(true);
+  // JSONTree 只在挂载时读取 shouldExpandNodeInitially，之后节点展开态由其内部 state 持有，
+  // 所以展开/收起全部必须靠切换 key 重新挂载整棵树来生效。
+  const [treeKey, setTreeKey] = useState(0);
+
+  const applyExpandAll = (expanded: boolean) => {
+    setShouldExpandNode(expanded);
+    setTreeKey((key) => key + 1);
+  };
 
   const handleExpandAll = (event: any) => {
     event.preventDefault();
-    setShouldExpandNode(true);
+    applyExpandAll(true);
   };
 
   const handleCollapseAll = (event: any) => {
     event.preventDefault();
-    setShouldExpandNode(false);
+    applyExpandAll(false);
   };
 
   const contextMenuList = [
@@ -99,7 +107,12 @@ const RequestTabComp = ({ jsonData }: RequestTabProps) => {
             {jsonView ?
               (
                 <div className="fill w-json-viewer-tree">
-                  <JSONTree data={jsonData.json} sortObjectKeys={compare} shouldExpandNode={() => shouldExpandNode} />
+                  <JSONTree
+                    key={treeKey}
+                    data={jsonData.json}
+                    sortObjectKeys={compare}
+                    shouldExpandNodeInitially={() => shouldExpandNode}
+                  />
                 </div>
               ) :
               (<textarea value={jsonData.txt} readOnly className="fill w-json-viewer-str" />)
